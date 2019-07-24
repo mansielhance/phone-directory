@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
 import Header from "./Header";
-import './App.css';
+import './ShowSubscribers.css';
 
-class App extends Component {
+class ShowSubscribers extends Component {
 
   clickHandler(message){
     alert(message);
   }
 
-  render(){
-    let subscribers = [
-      {
-        id: 1,
-        name: "Shilpa Bhat",
-        phone: "8888888888"
-      },
-      {
-        id: 2,
-        name: "Srishti Gupta",
-        phone: "9999999999"
-      }
-    ];
+  constructor() {
+    super();
+    this.state = {
+      subscribersListToShow: []
+    }
+  }
+
+  render() {
 
     return (
       <div className="component-container">
@@ -34,7 +29,7 @@ class App extends Component {
           </div>
 
           {
-            subscribers.map(sub => {
+            this.props.subscribersList.map(sub => {
               return <div key={sub.id} className="grid-container">
                 <span className="grid-item">{sub.name}</span>
                 <span className="grid-item">{sub.phone}</span>
@@ -54,4 +49,4 @@ class App extends Component {
   }
 
 
-export default App;
+  export default ShowSubscribers;
